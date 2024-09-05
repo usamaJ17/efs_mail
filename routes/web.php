@@ -13,7 +13,7 @@ use App\Http\Controllers\SentController;
 use App\Http\Controllers\ToggleAsReadEmailController;
 use App\Http\Controllers\ToggleAsStarredEmailController;
 use App\Http\Controllers\TrashController;
-use Illuminate\Foundation\Application;
+use App\Jobs\ImportUserEmailData;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -66,3 +66,9 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+
+Route::get('start_jobs', function(){
+    // ImportUserEmailData::dispatch(1);
+    return redirect()->route('inbox');
+});

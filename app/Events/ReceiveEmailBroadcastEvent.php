@@ -9,6 +9,7 @@ use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class ReceiveEmailBroadcastEvent implements ShouldBroadcast
 {
@@ -19,7 +20,7 @@ class ReceiveEmailBroadcastEvent implements ShouldBroadcast
      */
     public function __construct(public string $user_id)
     {
-        //
+        Log::info('Broadcasting on channel constructor', ['channel' => 'App.Models.User.' . $this->user_id]);
     }
 
     /**
@@ -29,6 +30,7 @@ class ReceiveEmailBroadcastEvent implements ShouldBroadcast
      */
     public function broadcastOn(): array
     {
+        Log::info('Broadcasting on channel function', ['channel' => 'App.Models.User.' . $this->user_id]);
         return [
             new PrivateChannel('App.Models.User.'.$this->user_id),
         ];

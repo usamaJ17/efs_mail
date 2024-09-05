@@ -71,7 +71,6 @@ const handleDeleteMany = () => {
     })
 }
 
-
 Echo.private('App.Models.User.' + usePage().props.auth.user.id)
     .listen('ReceiveEmailBroadcastEvent', (event) => {
         console.log('hello there from email receives')

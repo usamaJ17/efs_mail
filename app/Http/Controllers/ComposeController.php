@@ -51,7 +51,6 @@ class ComposeController extends Controller
                 collect($request->validated('files'))->map(function ($file) use ($message) {
                     $message->copyMedia($file['file'])->toMediaCollection('attachments');
                 });
-
                 event(new ReceiveEmailBroadcastEvent($user->id));
             });
 

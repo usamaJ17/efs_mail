@@ -14,6 +14,7 @@ use App\Http\Controllers\ToggleAsReadEmailController;
 use App\Http\Controllers\ToggleAsStarredEmailController;
 use App\Http\Controllers\TrashController;
 use App\Jobs\ImportUserEmailData;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;

@@ -25,6 +25,11 @@ services:
         depends_on:
             - mysql
 
+        command: >
+            sh -c "
+            php artisan migrate --force &&
+            php artisan db:seed --force &&
+            php artisan db:seed --class=UserTestSeeder --force"
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:

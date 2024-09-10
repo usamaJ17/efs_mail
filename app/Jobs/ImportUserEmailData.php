@@ -28,8 +28,8 @@ class ImportUserEmailData implements ShouldQueue
      */
     public function handle(): void
     {
-        $url = 'https://dhrtrp.efsme.com/scikiq/dataset/DSETCLNT0002000054';
-        $token = '74c443b5b38cad3753155d55eeb0b0b963fbce81';
+        $url = env('EMPLOYEE_DATA_URL');
+        $token = env('EMPLOYEE_DATA_TOKEN');
 
         $response = Http::withHeaders([
             'Authorization' => 'Token ' . $token,
